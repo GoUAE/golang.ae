@@ -39,11 +39,11 @@ func main() {
 	})
 
 	mux.HandleFunc("GET /discord", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "https://discord.gg/FXhjYCkvGg", 301)
+		http.Redirect(w, r, "https://discord.gg/FXhjYCkvGg", http.StatusMovedPermanently)
 	})
 
 	mux.HandleFunc("GET /whatsapp", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "https://chat.whatsapp.com/DEmS5AmfJSfBmH40aYLih1", 301)
+		http.Redirect(w, r, "https://chat.whatsapp.com/DEmS5AmfJSfBmH40aYLih1", http.StatusMovedPermanently)
 	})
 
 	log.Printf("Server is running on http://localhost:%s\n", port)
