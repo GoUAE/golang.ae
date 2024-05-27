@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for golang-ae-wispy-feather-2575 on 2024-05-27T17:41:59+04:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'golang-ae-wispy-feather-2575'
+primary_region = 'ams'
+
+[build]
+  [build.args]
+    GO_VERSION = '1.22.3'
+
+[env]
+  PORT = '8080'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
