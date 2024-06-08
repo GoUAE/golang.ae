@@ -10,6 +10,16 @@ import "context"
 import "io"
 import "bytes"
 
+type NavbarItem struct {
+	Name string
+	Link templ.SafeURL
+}
+
+type Social struct {
+	Icon string
+	Link templ.SafeURL
+}
+
 func Base(title string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
@@ -23,20 +33,20 @@ func Base(title string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script><title>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css\" integrity=\"sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"><script src=\"https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries\"></script><script>\n        tailwind.config = {\n          theme: {\n            extend: {},\n          },\n          darkMode: \"class\"\n        };\n      </script><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap\" rel=\"stylesheet\"><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap\" rel=\"stylesheet\"><title>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/template/template.templ`, Line: 9, Col: 17}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/template/template.templ`, Line: 33, Col: 17}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><link rel=\"icon\" type=\"image/x-icon\" href=\"public/favicon.ico\"></head><body><main class=\"p-6 grid gap-4\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><link rel=\"icon\" type=\"image/x-icon\" href=\"public/favicon.ico\"><style>\n        html, body {\n          font-family: 'Inter', sans-serif;\n          margin: 0;\n          padding: 0;\n        }\n\n        .space-mono {\n          font-family: 'Space Mono', monospace;\n          font-weight: 400;\n          line-height: 1.5;\n        }\n      </style></head><body class=\"bg-[#F5F5F5] dark:bg-[#1E1E1E] dark:text-[#D9D9D9] transition-all duration-500\"><main>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -55,7 +65,7 @@ func Base(title string) templ.Component {
 	})
 }
 
-func Home(title string) templ.Component {
+func Home(title string, navbar []NavbarItem, socials []Social) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -74,7 +84,86 @@ func Home(title string) templ.Component {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div>Under Construction</div>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" <div class=\"fixed bottom-4 right-4 z-50\"><button class=\"w-12 h-12 rounded-full text-xl bg-[#D9D9D9] hover:bg-[#98989F] dark:bg-[#2f2f2f] dark:hover:bg-[#464646] transition-all duration-300\" onclick=\"document.documentElement.classList.toggle(&#39;dark&#39;)\"><i class=\"fa-solid fa-moon dark:hidden\"></i> <i class=\"fa-solid fa-sun hidden dark:block\"></i></button></div> <img src=\"public/hummus.svg\" class=\"fixed -bottom-8 -left-8 w-40 h-auto transform rotate-[18deg] hover:-bottom-4 hover:rotate-[20deg] hover:-left-4 transition-all duration-300 z-50\"> <div class=\"max-w-xl mx-auto flex flex-col p-4 md:p-0 space-y-8 md:space-y-12 md:min-h-screen\"><div></div><div class=\"text-lg md:text-2xl text-white\"><p class=\"p-4 text-center font-medium tracking-wide bg-[#00ADD8] rounded-xl\">Stay tuned for the announcement of <br class=\"hidden md:block\">the first official GoUAE Meetup!</p></div><div class=\"text-lg md:text-3xl mx-auto flex flex-col items-center justify-center md:items-start\"><div class=\"space-mono flex flex-wrap items-center justify-center gap-4 dark:text-[#98989F]\"><span>A </span><img src=\"public/go.png\" class=\"h-4 md:h-6 w-auto\"> <span>User Group </span> <span>in the 🇦🇪 UAE</span> <span>For the </span><img src=\"public/mena.png\" class=\"h-6 rounded-md md:h-16 w-auto md:rounded-xl\"> <span>MENA Region</span></div></div><div class=\"flex justify-center md:justify-evenly items-center text-lg flex-wrap gap-4 md:gap-0\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			for i, item := range navbar {
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var5 templ.SafeURL = item.Link
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(string(templ_7745c5c3_Var5)))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"no-underline hover:bg-[#00ADD8] hover:text-white rounded-full px-2 py-1\">")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var6 string
+				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(item.Name)
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/template/template.templ`, Line: 99, Col: 118}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</a> ")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				if i < len(navbar)-1 {
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<i class=\"fa-solid fa-xmark hidden md:block text-[#CAC6C6] text-xs\"></i>")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+				}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><p class=\"pt-8 text-md md:text-xl md:text-justify text-[#3D3B3B] dark:text-[#D9D9D9]\">GoUAE is a UAE-based community for anyone  interested in the Go programming language.  GoUAE was founded on Saturday, May 25, 2024,  and since then the group has grown to over 100 members.</p><div class=\"flex-1\"></div><div class=\"flex justify-center md:justify-between items-center flex-col md:flex-row gap-4 md:gap-0 text-center md:text-left\"><div class=\"text-[#676767] dark:text-[#D9D9D9]\"><div class=\"font-medium\">&copy; GoUAE 2024</div><div class=\"font-bold\">A Coders(HQ) Community</div></div><div class=\"flex flex-wrap items-center justify-center gap-x-2 md:grid md:grid-cols-3 md:grid-rows-2\"><div class=\"hidden md:block\"></div>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			for _, social := range socials {
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var7 templ.SafeURL = social.Link
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(string(templ_7745c5c3_Var7)))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" target=\"_blank\" class=\"w-12 h-12 rounded-full flex items-center justify-center no-underline text-[#464646] dark:text-[#D9D9D9] hover:bg-[#00ADD8] hover:text-white\">")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var8 = []any{"text-2xl fa-brands", social.Icon}
+				templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var8...)
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<i class=\"")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var9 string
+				templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var8).String())
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/template/template.templ`, Line: 1, Col: 0}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"></i></a>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div><div></div></div><div class=\"h-24 md:h-0\"></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
