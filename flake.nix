@@ -11,43 +11,12 @@
         config,
         inputs',
         ...
-      }: let
-        gomod2nix = inputs'.gomod2nix.legacyPackages;
-      in {
+      }: {
         devShells.default = pkgs.mkShell {
-          inputsFrom = [config.packages.default];
-
           packages = l.attrValues {
-            inherit (pkgs) gopls;
-            inherit (gomod2nix) gomod2nix;
-          };
-        };
-
-        packages.default = gomod2nix.buildGoApplication {
-          pname = "golang-ae";
-          version = "0.1.0";
-
-          pwd = ./.;
-          src = ./.;
-
-          modules = ./gomod2nix.toml;
-
-          nativeBuildInputs = l.attrValues {
-            inherit (pkgs) just;
+            inherit (pkgs) go just gopls;
             inherit (inputs'.templ.packages) templ;
           };
-
-          preBuild = ''
-            just gen
-          '';
-
-          meta.mainProgram = "golang.ae";
-        };
-
-        packages.image = pkgs.dockerTools.buildImage {
-          name = "golang.ae";
-          tag = config.packages.default.version;
-          config.Cmd = ["${l.getExe config.packages.default}"];
         };
       };
     };
@@ -58,11 +27,6 @@
 
     templ = {
       url = "github:a-h/templ";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    gomod2nix = {
-      url = "github:nix-community/gomod2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
