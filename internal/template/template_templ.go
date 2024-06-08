@@ -33,14 +33,14 @@ func Base(title string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css\" integrity=\"sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"><script src=\"https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries\"></script><script>\n        tailwind.config = {\n          theme: {\n            extend: {},\n          },\n          darkMode: \"class\"\n        };\n      </script><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap\" rel=\"stylesheet\"><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap\" rel=\"stylesheet\"><title>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css\" integrity=\"sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"><script src=\"https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries\"></script><script>\n        tailwind.config = {\n          theme: {\n            extend: {},\n          },\n        };\n      </script><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap\" rel=\"stylesheet\"><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap\" rel=\"stylesheet\"><title>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/template/template.templ`, Line: 33, Col: 17}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/template/template.templ`, Line: 32, Col: 17}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -84,7 +84,7 @@ func Home(title string, navbar []NavbarItem, socials []Social) templ.Component {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" <div class=\"fixed bottom-4 right-4 z-50\"><button class=\"w-12 h-12 rounded-full text-xl bg-[#D9D9D9] hover:bg-[#98989F] dark:bg-[#2f2f2f] dark:hover:bg-[#464646] transition-all duration-300\" onclick=\"document.documentElement.classList.toggle(&#39;dark&#39;)\"><i class=\"fa-solid fa-moon dark:hidden\"></i> <i class=\"fa-solid fa-sun hidden dark:block\"></i></button></div> <img src=\"public/hummus.svg\" class=\"fixed -bottom-8 -left-8 w-40 h-auto transform rotate-[18deg] hover:-bottom-4 hover:rotate-[20deg] hover:-left-4 transition-all duration-300 z-50\"> <div class=\"max-w-xl mx-auto flex flex-col p-4 md:p-0 space-y-8 md:space-y-12 md:min-h-screen\"><div></div><div class=\"text-lg md:text-2xl text-white\"><p class=\"p-4 text-center font-medium tracking-wide bg-[#00ADD8] rounded-xl\">Stay tuned for the announcement of <br class=\"hidden md:block\">the first official GoUAE Meetup!</p></div><div class=\"text-lg md:text-3xl mx-auto flex flex-col items-center justify-center md:items-start\"><div class=\"space-mono flex flex-wrap items-center justify-center gap-4 dark:text-[#98989F]\"><span>A </span><img src=\"public/go.png\" class=\"h-4 md:h-6 w-auto\"> <span>User Group </span> <span>in the 🇦🇪 UAE</span> <span>For the </span><img src=\"public/mena.png\" class=\"h-6 rounded-md md:h-16 w-auto md:rounded-xl\"> <span>MENA Region</span></div></div><div class=\"flex justify-center md:justify-evenly items-center text-lg flex-wrap gap-4 md:gap-0\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" <img src=\"public/hummus.svg\" class=\"fixed -bottom-8 -left-8 w-40 h-auto transform rotate-[18deg] hover:-bottom-4 hover:rotate-[20deg] hover:-left-4 transition-all duration-300 z-50\"> <div class=\"max-w-xl mx-auto flex flex-col p-4 md:p-0 space-y-8 md:space-y-12 md:min-h-screen\"><div></div><div class=\"text-lg md:text-2xl text-white\"><p class=\"p-4 text-center font-medium tracking-wide bg-[#00ADD8] rounded-xl\">Stay tuned for the announcement of <br class=\"hidden md:block\">the first official GoUAE Meetup!</p></div><div class=\"text-lg md:text-3xl mx-auto flex flex-col items-center justify-center md:items-start\"><div class=\"space-mono flex flex-wrap items-center justify-center gap-4 dark:text-[#98989F]\"><span>A </span><img src=\"public/go.png\" class=\"h-4 md:h-6 w-auto\"> <span>User Group </span> <span>in the 🇦🇪 UAE</span> <span>For the </span><img src=\"public/mena.png\" class=\"h-6 rounded-md md:h-16 w-auto md:rounded-xl\"> <span>MENA Region</span></div></div><div class=\"flex justify-center md:justify-evenly items-center text-lg flex-wrap gap-4 md:gap-0\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -105,7 +105,7 @@ func Home(title string, navbar []NavbarItem, socials []Social) templ.Component {
 				var templ_7745c5c3_Var6 string
 				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(item.Name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/template/template.templ`, Line: 99, Col: 118}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/template/template.templ`, Line: 88, Col: 118}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {

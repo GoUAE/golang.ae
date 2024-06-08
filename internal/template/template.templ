@@ -23,7 +23,6 @@ templ Base(title string) {
           theme: {
             extend: {},
           },
-          darkMode: "class"
         };
       </script>
 			<link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -56,16 +55,6 @@ templ Base(title string) {
 
 templ Home(title string, navbar []NavbarItem, socials []Social) {
 	@Base(title) {
-		// add dark mode toggle
-		<div class="fixed bottom-4 right-4 z-50">
-			<button
-				class="w-12 h-12 rounded-full text-xl bg-[#D9D9D9] hover:bg-[#98989F] dark:bg-[#2f2f2f] dark:hover:bg-[#464646] transition-all duration-300"
-				onclick="document.documentElement.classList.toggle('dark')"
-			>
-				<i class="fa-solid fa-moon dark:hidden"></i>
-				<i class="fa-solid fa-sun hidden dark:block"></i>
-			</button>
-		</div>
 		// place hummus.png on the bottom left corner
 		<img
 			src="public/hummus.svg"
