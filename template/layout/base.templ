@@ -7,7 +7,9 @@ css bodyStyle() {
 	margin: 0 auto;
 	height: 100vh;
 	overflow: hidden;
-}
+	background-color: #e9e9e9;
+	display: flex
+	}
 
 templ Base(title string) {
 	<html>
@@ -26,7 +28,6 @@ templ Base(title string) {
 			@partial.Hummus()
 			<!--#-Hummus-->
 			@partial.Header()
-			@partial.EventBanner()
 			<main>
 				{ children... }
 			</main>

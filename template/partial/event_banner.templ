@@ -1,14 +1,23 @@
 package partial
 
-templ EventBanner() {
+type Event struct {
+	Start string
+	End   string
+
+	Location   string
+	Date       string
+	MeetupLink templ.SafeURL
+}
+
+templ EventBanner(event Event) {
 	<div>
 		<h3>Next Event!</h3>
-		<h3>11:30 - 1:30</h3>
-		<h2>Saturday, October 26, 2024</h2>
+		<h3>{ event.Start } - { event.End } </h3>
+		<h2>{ event.Date }</h2>
 		<h3>
-			<i class="i-location"></i>Emirates Towers, Dubai
+			<i class="i-location"></i> { event.Location }
 		</h3>
-		<a href="https://www.meetup.com/dubai-gophers/">
+		<a href={ event.MeetupLink }>
 			Event Details (meetup.com)
 		</a>
 	</div>

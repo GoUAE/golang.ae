@@ -1,6 +1,9 @@
 .direnv/
 result/
 
+# Templ
+*_templ.go
+
 # We don't need to commit index.html as part of the repository
 # Cloudflare includes the go compiler in the build process
 index.html
