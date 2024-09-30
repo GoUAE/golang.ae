@@ -1,0 +1,1 @@
+<footer><p>&copy; 2024 GoUAE</p><a href=\"https://codershq.ae\">A Coders(HQ) Community</a></footer>
