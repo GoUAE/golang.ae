@@ -1,6 +1,0 @@
-<div><h3>Next Event!</h3><h3>
- - 
-</h3><h2>
-</h2><h3><i class=\"i-location\"></i> 
-</h3><a href=\"
-\">Event Details (meetup.com)</a></div>

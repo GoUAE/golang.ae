@@ -3,6 +3,7 @@ result/
 
 # Templ
 *_templ.go
+*_templ.txt
 
 # We don't need to commit index.html as part of the repository
 # Cloudflare includes the go compiler in the build process
